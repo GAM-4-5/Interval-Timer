@@ -1,0 +1,203 @@
+﻿<Window x:Class="Interval_Timer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Height="1000"
+        Width="750"
+        WindowStartupLocation="CenterScreen"
+        Icon="IntervalTimerIcon2.png"
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        FontFamily="Arial">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" 
+                                      Value="35"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3"
+                                      Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0"
+                                      Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3"
+                                      Value="35"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click"
+                      SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click"
+                      SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="LightGray">
+
+        <Grid x:Name="MainMenu"
+              Background="LightGray"
+              Visibility="Visible">
+        </Grid>
+        <Grid x:Name="StopwatchMenu">
+            <TextBlock x:Name="Stopwatch"
+                    VerticalAlignment="Center" 
+                    FontSize="100" 
+                    HorizontalAlignment="Center"
+                    Text="0:00:00">
+            </TextBlock>
+            <Button x:Name="StartStop"
+                Height="50"
+                Width="100" 
+                Margin="250,600,250,300" 
+                Content="Start" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="Bold" 
+                Background="DarkRed"
+                Click="StartStop_Click">
+            </Button>
+        </Grid>
+        <Grid Grid.ColumnSpan="3"
+              Height="40"
+              VerticalAlignment="Top"
+              Background="DarkRed"
+              MouseDown="Grid_MouseDown">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <materialDesign:PopupBox Margin="3"
+                                         PlacementMode="BottomAndAlignRightEdges"
+                                         Foreground="WhiteSmoke">
+                    <StackPanel Width="300">
+                        <Button Content="Settings"/>
+                        <Button Content="Help"/>
+                        <Separator/>
+                        <Button x:Name="Shutdown"
+                                Content="Shutdown"
+                                Click="Shutdown_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="GridMenu"
+              Width="40"
+              HorizontalAlignment="Left"
+              Background="DarkRed" >
+            <StackPanel>
+                <Grid Height="100" Background="WhiteSmoke">
+                    <Button x:Name="ButtonCloseMenu"
+                            Width="50"
+                            Height="30"
+                            VerticalAlignment="Top"
+                            Margin="10"
+                            HorizontalAlignment="Right"
+                            Background="{x:Null}"
+                            BorderBrush="{x:Null}"
+                            Click="ButtonCloseMenu_Click"
+                            Visibility="Collapsed">
+                        <materialDesign:PackIcon Kind="ArrowLeft"
+                                                 Foreground="Black"
+                                                 Width="20"
+                                                 Height="20"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu"
+                            Width="50"
+                            Height="30"
+                            VerticalAlignment="Top"
+                            Margin="-6,10"
+                            HorizontalAlignment="Right"
+                            Background="{x:Null}"
+                            BorderBrush="{x:Null}"
+                            Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Kind="Menu"
+                                                 Foreground="Black"
+                                                 Width="20"
+                                                 Height="20"/>
+                    </Button>
+                </Grid>
+                <Grid x:Name="MenuButtons">
+                    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
+                                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.1}">
+                        <Grid x:Name="GridCursor"
+                              HorizontalAlignment="left"
+                              Width="5"
+                              Height="60"
+                              Background="WhiteSmoke"
+                              VerticalAlignment="Top"/>
+                    </materialDesign:TransitioningContent>
+                    <ListView x:Name="ListViewMenu"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              Background="Black"
+                              SelectionChanged="ListViewMenu_SelectionChanged">
+                        <ListViewItem  x:Name="AddRoutineButton"
+                                       Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="PlusBox"
+                                                         Height="20"
+                                                         Width="20"
+                                                         Margin="3"
+                                                         VerticalAlignment="Center">
+                                </materialDesign:PackIcon>
+                                <TextBlock Text="Add Routine"
+                                           VerticalAlignment="Center"
+                                           Margin="15" />
+
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="MyRoutinesButton"
+                                      Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FormatListBulletedSquare"
+                                                         Height="20"
+                                                         Width="20"
+                                                         Margin="3"
+                                                         VerticalAlignment="Center"/>
+                                <TextBlock Text="My Routines"
+                                       VerticalAlignment="Center"
+                                       Margin="15" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="FinishedRoutinesButton"
+                                  Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="CalendarCheck"
+                                                         Height="20"
+                                                         Width="20"
+                                                         Margin="3"
+                                                         VerticalAlignment="Center"/>
+                                <TextBlock Text="Finished Routines"
+                                       VerticalAlignment="Center"
+                                       Margin="15" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem  x:Name="StopwatchButton"
+                                   Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="StopwatchOutline"
+                                                         Height="20"
+                                                         Width="20"
+                                                         Margin="3"
+                                                         VerticalAlignment="Center"/>
+                                <TextBlock Text="Stopwatch"
+                                       VerticalAlignment="Center"
+                                       Margin="15" />
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -17,7 +17,7 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" 
                                            Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" 
-                                      Value="35"/>
+                                      Value="40"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3"
                                       Value="200"/>
             </DoubleAnimationUsingKeyFrames>
@@ -28,7 +28,7 @@
                 <EasingDoubleKeyFrame KeyTime="0"
                                       Value="200"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3"
-                                      Value="35"/>
+                                      Value="40"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -61,7 +61,7 @@
             <Button x:Name="StartStop"
                     Height="100"
                     Width="100" 
-                    Margin="250,600,250,300" 
+                    Margin="150,600,350,300" 
                     Content="Start" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
@@ -70,6 +70,19 @@
                     materialDesign:ButtonAssist.CornerRadius="50"
                     Background="DarkRed"
                     Click="StartStop_Click">
+            </Button>
+            <Button x:Name="ResetOrLap"
+                    Height="100"
+                    Width="100" 
+                    Margin="350,600,150,300" 
+                    Content="Reset" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    Background="DarkRed"
+                    Click="ResetOrLap_Click">
             </Button>
         </Grid>
         <Grid Grid.ColumnSpan="3"
@@ -81,7 +94,7 @@
                         HorizontalAlignment="Right">
                 <materialDesign:PopupBox Margin="3"
                                          PlacementMode="BottomAndAlignRightEdges"
-                                         Foreground="WhiteSmoke">
+                                         Foreground="LightGray">
                     <StackPanel Width="300">
                         <Button Content="Settings"/>
                         <Button Content="Help"/>
@@ -98,7 +111,8 @@
               HorizontalAlignment="Left"
               Background="DarkRed" >
             <StackPanel>
-                <Grid Height="100" Background="WhiteSmoke">
+                <Grid Height="100"
+                      Background="#520205">
                     <Button x:Name="ButtonCloseMenu"
                             Width="50"
                             Height="30"
@@ -110,7 +124,7 @@
                             Click="ButtonCloseMenu_Click"
                             Visibility="Collapsed">
                         <materialDesign:PackIcon Kind="ArrowLeft"
-                                                 Foreground="Black"
+                                                 Foreground="LightGray"
                                                  Width="20"
                                                  Height="20"/>
                     </Button>
@@ -124,19 +138,19 @@
                             BorderBrush="{x:Null}"
                             Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon Kind="Menu"
-                                                 Foreground="Black"
+                                                 Foreground="LightGray"
                                                  Width="20"
                                                  Height="20"/>
                     </Button>
                 </Grid>
                 <Grid x:Name="MenuButtons">
                     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
-                                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.1}">
+                                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.3}">
                         <Grid x:Name="GridCursor"
                               HorizontalAlignment="left"
                               Width="5"
                               Height="60"
-                              Background="WhiteSmoke"
+                              Background="#520205"
                               VerticalAlignment="Top"/>
                     </materialDesign:TransitioningContent>
                     <ListView x:Name="ListViewMenu"
@@ -150,11 +164,13 @@
                                                          Height="20"
                                                          Width="20"
                                                          Margin="3"
-                                                         VerticalAlignment="Center">
+                                                         VerticalAlignment="Center"
+                                                         Foreground="LightGray">
                                 </materialDesign:PackIcon>
                                 <TextBlock Text="Add Routine"
                                            VerticalAlignment="Center"
-                                           Margin="15" />
+                                           Margin="15" 
+                                           Foreground="LightGray"/>
 
                             </StackPanel>
                         </ListViewItem>
@@ -165,36 +181,42 @@
                                                          Height="20"
                                                          Width="20"
                                                          Margin="3"
-                                                         VerticalAlignment="Center"/>
+                                                         VerticalAlignment="Center"
+                                                         Foreground="LightGray"/>
                                 <TextBlock Text="My Routines"
-                                       VerticalAlignment="Center"
-                                       Margin="15" />
+                                           VerticalAlignment="Center"
+                                           Margin="15"
+                                           Foreground="LightGray"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="FinishedRoutinesButton"
-                                  Height="60">
+                                      Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="CalendarCheck"
                                                          Height="20"
                                                          Width="20"
                                                          Margin="3"
-                                                         VerticalAlignment="Center"/>
+                                                         VerticalAlignment="Center"
+                                                         Foreground="LightGray"/>
                                 <TextBlock Text="Finished Routines"
                                        VerticalAlignment="Center"
-                                       Margin="15" />
+                                       Margin="15"
+                                       Foreground="LightGray"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem  x:Name="StopwatchButton"
-                                   Height="60">
+                                       Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="StopwatchOutline"
                                                          Height="20"
                                                          Width="20"
                                                          Margin="3"
-                                                         VerticalAlignment="Center"/>
+                                                         VerticalAlignment="Center"
+                                                         Foreground="LightGray"/>
                                 <TextBlock Text="Stopwatch"
-                                       VerticalAlignment="Center"
-                                       Margin="15" />
+                                           VerticalAlignment="Center"
+                                           Margin="15"
+                                           Foreground="LightGray"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>

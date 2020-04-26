@@ -83,14 +83,21 @@ namespace Interval_Timer
                 sw.Stop();
                 dt.Stop();
                 StartStop.Content = "Resume";
+                ResetOrLap.Content = "Reset";
             }
             else
             {
                 sw.Start();
                 dt.Start();
                 StartStop.Content = "Pause";
+                ResetOrLap.Content = "Lap";
             }
             clicker++;
+        }
+
+        private void ResetOrLap_Click(object sender, RoutedEventArgs e)
+        {
+            Stopwatch.Text = "0:00:00";
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -108,5 +115,6 @@ namespace Interval_Timer
             TransitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, 60 * index, 0, 0);
         }
+
     }
 }

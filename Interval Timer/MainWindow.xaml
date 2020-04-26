@@ -47,43 +47,10 @@
 
     <Grid Background="LightGray">
 
-        <Grid x:Name="MainMenu"
+        <Grid x:Name="MainGrid"
               Background="LightGray"
-              Visibility="Visible">
-        </Grid>
-        <Grid x:Name="StopwatchMenu">
-            <TextBlock x:Name="Stopwatch"
-                    VerticalAlignment="Center" 
-                    FontSize="100" 
-                    HorizontalAlignment="Center"
-                    Text="0:00:00">
-            </TextBlock>
-            <Button x:Name="StartStop"
-                    Height="100"
-                    Width="100" 
-                    Margin="150,600,350,300" 
-                    Content="Start" 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    BorderThickness="0"
-                    FontWeight="Bold"
-                    materialDesign:ButtonAssist.CornerRadius="50"
-                    Background="DarkRed"
-                    Click="StartStop_Click">
-            </Button>
-            <Button x:Name="ResetOrLap"
-                    Height="100"
-                    Width="100" 
-                    Margin="350,600,150,300" 
-                    Content="Reset" 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    BorderThickness="0"
-                    FontWeight="Bold"
-                    materialDesign:ButtonAssist.CornerRadius="50"
-                    Background="DarkRed"
-                    Click="ResetOrLap_Click">
-            </Button>
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center">
         </Grid>
         <Grid Grid.ColumnSpan="3"
               Height="40"
@@ -109,7 +76,7 @@
         <Grid x:Name="GridMenu"
               Width="40"
               HorizontalAlignment="Left"
-              Background="DarkRed" >
+              Background="DarkRed">
             <StackPanel>
                 <Grid Height="100"
                       Background="#520205">

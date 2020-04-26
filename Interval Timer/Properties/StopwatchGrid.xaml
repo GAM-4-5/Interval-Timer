@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Interval_Timer.Properties.StopwatchGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interval_Timer.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
+                                             OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.8}">
+            <Grid x:Name="StopwatchMenu"
+                  Margin="40, 40, 0, 0">
+                <TextBlock x:Name="Stopwatch"
+                    VerticalAlignment="Center" 
+                    FontSize="100" 
+                    HorizontalAlignment="Center"
+                    Text="0:00:00">
+                </TextBlock>
+                <Button x:Name="StartStop"
+                    Height="100"
+                    Width="100" 
+                    Margin="110,560,310,260" 
+                    Content="Start" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    Background="DarkRed"
+                    Click="StartStop_Click">
+                </Button>
+                <Button x:Name="ResetOrLap"
+                    Height="100"
+                    Width="100" 
+                    Margin="310,560,110,260" 
+                    Content="Reset" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    Background="DarkRed"
+                    Click="ResetOrLap_Click">
+                </Button>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

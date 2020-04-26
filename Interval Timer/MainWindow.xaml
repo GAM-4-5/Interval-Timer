@@ -59,15 +59,17 @@
                     Text="0:00:00">
             </TextBlock>
             <Button x:Name="StartStop"
-                Height="50"
-                Width="100" 
-                Margin="250,600,250,300" 
-                Content="Start" 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontWeight="Bold" 
-                Background="DarkRed"
-                Click="StartStop_Click">
+                    Height="100"
+                    Width="100" 
+                    Margin="250,600,250,300" 
+                    Content="Start" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    Background="DarkRed"
+                    Click="StartStop_Click">
             </Button>
         </Grid>
         <Grid Grid.ColumnSpan="3"

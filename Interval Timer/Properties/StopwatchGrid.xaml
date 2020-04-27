@@ -13,15 +13,16 @@
             <Grid x:Name="StopwatchMenu"
                   Margin="40, 40, 0, 0">
                 <TextBlock x:Name="Stopwatch"
-                    VerticalAlignment="Center" 
-                    FontSize="100" 
-                    HorizontalAlignment="Center"
-                    Text="0:00:00">
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="100" 
+                           Text="0:00:00"
+                           Margin="0,0,0,500">
                 </TextBlock>
                 <Button x:Name="StartStop"
                     Height="100"
                     Width="100" 
-                    Margin="110,560,310,260" 
+                    Margin="0, 0, 150, 200" 
                     Content="Start" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
@@ -34,8 +35,8 @@
                 <Button x:Name="ResetOrLap"
                     Height="100"
                     Width="100" 
-                    Margin="310,560,110,260" 
-                    Content="Reset" 
+                    Margin="150, 0, 0, 200" 
+                    Content="Lap" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     BorderThickness="0"
@@ -46,5 +47,8 @@
                 </Button>
             </Grid>
         </materialDesign:TransitioningContent>
+        <Grid x:Name="Listing">
+
+        </Grid>
     </Grid>
 </UserControl>

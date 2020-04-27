@@ -25,22 +25,30 @@
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                            Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0"
+                <EasingDoubleKeyFrame KeyTime="3"
                                       Value="200"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3"
                                       Value="40"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
-    
+
 
     <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click"
+        <!--<EventTrigger RoutedEvent="ButtonBase.Click"
                       SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click"
                       SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>-->
+        <EventTrigger RoutedEvent="MouseEnter"
+                      SourceName="GridMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="GridMenu">
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
@@ -80,35 +88,13 @@
             <StackPanel>
                 <Grid Height="100"
                       Background="#520205">
-                    <Button x:Name="ButtonCloseMenu"
-                            Width="50"
-                            Height="30"
-                            VerticalAlignment="Top"
-                            Margin="10"
-                            HorizontalAlignment="Right"
-                            Background="{x:Null}"
-                            BorderBrush="{x:Null}"
-                            Click="ButtonCloseMenu_Click"
-                            Visibility="Collapsed">
-                        <materialDesign:PackIcon Kind="ArrowLeft"
+                    <materialDesign:PackIcon Kind="Menu"
                                                  Foreground="LightGray"
                                                  Width="20"
-                                                 Height="20"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu"
-                            Width="50"
-                            Height="30"
-                            VerticalAlignment="Top"
-                            Margin="-6,10"
-                            HorizontalAlignment="Right"
-                            Background="{x:Null}"
-                            BorderBrush="{x:Null}"
-                            Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Kind="Menu"
-                                                 Foreground="LightGray"
-                                                 Width="20"
-                                                 Height="20"/>
-                    </Button>
+                                                 Height="20"
+                                                 VerticalAlignment="Top"
+                                                 Margin="10,10"
+                                                 HorizontalAlignment="Right"/>
                 </Grid>
                 <Grid x:Name="MenuButtons">
                     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
@@ -137,7 +123,8 @@
                                 <TextBlock Text="Add Routine"
                                            VerticalAlignment="Center"
                                            Margin="15" 
-                                           Foreground="LightGray"/>
+                                           Foreground="LightGray"
+                                           FontWeight="Bold"/>
 
                             </StackPanel>
                         </ListViewItem>
@@ -153,7 +140,8 @@
                                 <TextBlock Text="My Routines"
                                            VerticalAlignment="Center"
                                            Margin="15"
-                                           Foreground="LightGray"/>
+                                           Foreground="LightGray"
+                                           FontWeight="Bold"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="FinishedRoutinesButton"
@@ -166,9 +154,10 @@
                                                          VerticalAlignment="Center"
                                                          Foreground="LightGray"/>
                                 <TextBlock Text="Finished Routines"
-                                       VerticalAlignment="Center"
-                                       Margin="15"
-                                       Foreground="LightGray"/>
+                                           VerticalAlignment="Center"
+                                           Margin="15"
+                                           Foreground="LightGray"
+                                           FontWeight="Bold"/>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem  x:Name="StopwatchButton"
@@ -183,7 +172,8 @@
                                 <TextBlock Text="Stopwatch"
                                            VerticalAlignment="Center"
                                            Margin="15"
-                                           Foreground="LightGray"/>
+                                           Foreground="LightGray"
+                                           FontWeight="Bold"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>

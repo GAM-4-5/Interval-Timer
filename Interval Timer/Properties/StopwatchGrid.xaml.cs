@@ -47,10 +47,13 @@ namespace Interval_Timer.Properties
             }
         }
 
-        int clicker = 0;
+        private int clicker = 0;
+
+        public int Clicker { get => clicker; set => clicker = value; }
+
         private void StartStop_Click(object sender, RoutedEventArgs e)
         {
-            if (clicker % 2 != 0)
+            if (Clicker % 2 != 0)
             {
                 sw.Stop();
                 dt.Stop();
@@ -64,12 +67,21 @@ namespace Interval_Timer.Properties
                 StartStop.Content = "Pause";
                 ResetOrLap.Content = "Lap";
             }
-            clicker++;
+            Clicker++;
         }
 
         private void ResetOrLap_Click(object sender, RoutedEventArgs e)
         {
-            Stopwatch.Text = "0:00:00";
+            if (Clicker % 2 == 0)
+            {
+                Stopwatch.Text = "0:00:00";
+                sw.Restart();
+                dt.Equals(0);
+            }
+            else
+            {
+
+            }
         }
     }
 }

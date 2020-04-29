@@ -66,22 +66,68 @@ namespace Interval_Timer.Properties
                 dt.Start();
                 StartStop.Content = "Pause";
                 ResetOrLap.Content = "Lap";
+                RecordedTimes.Add(new List<int> { 0, 0, 0 });
             }
             Clicker++;
         }
 
-        private void ResetOrLap_Click(object sender, RoutedEventArgs e)
+        static string NewLap(int NewMinutes, int NewSeconds, int NewMilliseconds)
         {
+            if (NewMilliseconds > 99)
+            {
+                NewMilliseconds = Convert.ToInt32(Convert.ToString(NewMilliseconds).Substring(0, 2));
+            }
+            var NewLapTime = String.Format("{0:00}:{1:00}:{2:00}",
+            NewMinutes, NewSeconds, NewMilliseconds);
+            return NewLapTime;
+        }
+
+        int NewMinutes = 0;
+        int NewSeconds = 0;
+        int NewMilliseconds = 0;
+        List<List<int>> RecordedTimes = new List<List<int>>();
+    public void ResetOrLap_Click(object sender, RoutedEventArgs e)
+        {
+            
             if (Clicker % 2 == 0)
             {
-                Stopwatch.Text = "0:00:00";
-                sw.Restart();
+                Stopwatch.Text = "00:00:00";
+                dt.Stop();
                 dt.Equals(0);
+                sw.Reset();
+                LapListing.Children.Clear();
+                StartStop.Content = "Start";
+                ResetOrLap.Content = "Lap";
             }
             else
             {
-
+                var newTextBlock = new TextBlock();
+                var newSeparator = new Separator();
+                TimeSpan ts = sw.Elapsed;
+                NewMinutes = ts.Minutes - RecordedTimes[RecordedTimes.Count - 1][0];
+                NewSeconds = ts.Seconds - RecordedTimes[RecordedTimes.Count - 1][1];
+                NewMilliseconds = ts.Milliseconds / 10 - RecordedTimes[RecordedTimes.Count - 1][2];
+                var ms = 0;
+                ms = NewMinutes * 60000 + NewSeconds * 1000 + NewMilliseconds;
+                NewMinutes = ms / 60000;
+                NewSeconds = ms / 1000;
+                NewMilliseconds = ms - ms / 60000 - ms / 1000;
+                newTextBlock.Text = NewLap(NewMinutes, NewSeconds, NewMilliseconds);
+                newTextBlock.FontSize = 20;
+                newTextBlock.VerticalAlignment = VerticalAlignment.Center;
+                newTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
+                newSeparator.VerticalAlignment = VerticalAlignment.Center;
+                newSeparator.HorizontalAlignment = HorizontalAlignment.Center;
+                newSeparator.Width = 550;
+                LapListing.Children.Add(newTextBlock);
+                LapListing.Children.Add(newSeparator);
+                RecordedTimes.Add(new List<int> { ts.Minutes, ts.Seconds, ts.Milliseconds / 10 });
             }
+        }
+
+        private void ScrollViewer_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
         }
     }
 }

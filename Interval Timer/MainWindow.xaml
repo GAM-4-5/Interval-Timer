@@ -16,7 +16,7 @@
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" 
                                            Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" 
+                <EasingDoubleKeyFrame KeyTime="1" 
                                       Value="40"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3"
                                       Value="200"/>

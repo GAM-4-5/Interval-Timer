@@ -7,16 +7,28 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Height="auto" Width="auto">
-    <Grid>
+    <Grid Margin="40, 40, 0, 0">
+        
+        <Grid Margin="50,350,50,0"
+                  Width="710"
+                  Height="300"
+                  HorizontalAlignment="Center">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Visible">
+                <StackPanel x:Name="LapListing" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                </StackPanel>
+            </ScrollViewer>
+        </Grid> 
         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.8}">
-            <Grid x:Name="StopwatchMenu"
-                  Margin="40, 40, 0, 0">
+            <Grid x:Name="StopwatchMenu">
                 <TextBlock x:Name="Stopwatch"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="100" 
-                           Text="0:00:00"
+                           Text="00:00:00"
                            Margin="0,0,0,500">
                 </TextBlock>
                 <Button x:Name="StartStop"
@@ -47,8 +59,5 @@
                 </Button>
             </Grid>
         </materialDesign:TransitioningContent>
-        <Grid x:Name="Listing">
-
-        </Grid>
     </Grid>
 </UserControl>

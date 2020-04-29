@@ -69,15 +69,15 @@ namespace Interval_Timer
             {
                 case 0:
                     MainGrid.Children.Clear();
-                    ///MainGrid.Children.Add(new StopwatchGrid());
+                    MainGrid.Children.Add(new AddRoutineGrid());
                     break;
                 case 1:
                     MainGrid.Children.Clear();
-                    ///MainGrid.Children.Add(new StopwatchGrid());
+                    MainGrid.Children.Add(new MyRoutinesGrid());
                     break;
                 case 2:
                     MainGrid.Children.Clear();
-                    ///MainGrid.Children.Add(new StopwatchGrid());
+                    MainGrid.Children.Add(new FinishedRoutinesGrid());
                     break;
                 case 3:
                     MainGrid.Children.Clear();

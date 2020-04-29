@@ -7,11 +7,13 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Height="auto" Width="auto">
-    <Grid>
+    <Grid Margin="40, 40, 0, 0">
         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.8}">
             <Grid x:Name="MyRoutinesMenu">
-
+                <StackPanel>
+                    <TextBlock Text="My Routine"/>
+                </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>
     </Grid>

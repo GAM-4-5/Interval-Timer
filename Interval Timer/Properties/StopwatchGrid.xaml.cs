@@ -66,6 +66,9 @@ namespace Interval_Timer.Properties
                 dt.Start();
                 StartStop.Content = "Pause";
                 ResetOrLap.Content = "Lap";
+            }
+            if (Clicker == 0)
+            {
                 RecordedTimes.Add(new List<int> { 0, 0, 0 });
             }
             Clicker++;
@@ -73,6 +76,11 @@ namespace Interval_Timer.Properties
 
         static string NewLap(int NewMinutes, int NewSeconds, int NewMilliseconds)
         {
+            var ms = 0;
+            ms = NewMinutes * 60000 + NewSeconds * 1000 + NewMilliseconds;
+            NewMinutes = ms / 60000;
+            NewSeconds = ms / 1000;
+            NewMilliseconds = ms - ms / 60000 - ms / 1000;
             if (NewMilliseconds > 99)
             {
                 NewMilliseconds = Convert.ToInt32(Convert.ToString(NewMilliseconds).Substring(0, 2));
@@ -98,6 +106,7 @@ namespace Interval_Timer.Properties
                 LapListing.Children.Clear();
                 StartStop.Content = "Start";
                 ResetOrLap.Content = "Lap";
+                RecordedTimes.Add(new List<int> { 0, 0, 0 });
             }
             else
             {
@@ -107,11 +116,6 @@ namespace Interval_Timer.Properties
                 NewMinutes = ts.Minutes - RecordedTimes[RecordedTimes.Count - 1][0];
                 NewSeconds = ts.Seconds - RecordedTimes[RecordedTimes.Count - 1][1];
                 NewMilliseconds = ts.Milliseconds / 10 - RecordedTimes[RecordedTimes.Count - 1][2];
-                var ms = 0;
-                ms = NewMinutes * 60000 + NewSeconds * 1000 + NewMilliseconds;
-                NewMinutes = ms / 60000;
-                NewSeconds = ms / 1000;
-                NewMilliseconds = ms - ms / 60000 - ms / 1000;
                 newTextBlock.Text = NewLap(NewMinutes, NewSeconds, NewMilliseconds);
                 newTextBlock.FontSize = 20;
                 newTextBlock.VerticalAlignment = VerticalAlignment.Center;

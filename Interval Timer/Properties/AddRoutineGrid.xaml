@@ -14,7 +14,21 @@
                 <StackPanel>
                     <Button x:Name="NewRoutineButton"
                             Content="Add Routine"
-                            Click="NewRoutineButton_Click"/>
+                            Click="NewRoutineButton_Click"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"/>
+                    <TextBox x:Name="NewRoutineName"
+                             Text="Name"
+                             GotFocus="NewRoutineName_GotFocus"
+                             MaxWidth="50"/>
+                    <TextBlock x:Name="NameError"
+                               Text="Routine name is needed"
+                               Foreground="Red"
+                               Visibility="Hidden"/>
+                    <ComboBox MaxHeight="100"
+                              IsEditable="False"
+                              x:Name="Warmup">
+                    </ComboBox>
                 </StackPanel>
 
             </Grid>

@@ -83,14 +83,13 @@ namespace Interval_Timer
                     MainGrid.Children.Clear();
                     MainGrid.Children.Add(new StopwatchGrid());
                     break;
-                default:
-                    break;
             }
         }
             private void MoveCursorMenu(int index)
         {
             TransitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, 60 * index, 0, 0);
+            GridCursor.Width = 5;
         }
 
     }

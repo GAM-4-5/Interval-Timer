@@ -89,12 +89,12 @@ namespace Interval_Timer
 
         private void Help_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("We are still in beta development, this is currently unavailable");
+            MessageBox.Show("How to use:\n Open menu by moving cursor to the left side of the program\n and press on the element that you are interested in.", "Help");
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("We are still in beta development, this is currently unavailable");
+            MessageBox.Show("We are still in beta development, this is currently unavailable", "Beta");
         }
     }
 }

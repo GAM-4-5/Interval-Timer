@@ -82,7 +82,7 @@ namespace Interval_Timer
                 timer.Stop();
                 ITimer.Stop();
                 ListOfRoutines.Visibility = Visibility.Visible;
-                MessageBox.Show("Activity completed");
+                MessageBox.Show("You finished your routine. Don't forget to come back tomorrow.", "Activity completed");
             }
         }
 

@@ -59,6 +59,10 @@
               Background="LightGray"
               HorizontalAlignment="Center"
               VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Welcome to Interval Timer!" FontSize="30" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="If you need help using this application press help in upper right corner" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+            </StackPanel>
         </Grid>
         <Grid Grid.ColumnSpan="3"
               Height="40"

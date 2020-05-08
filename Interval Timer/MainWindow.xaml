@@ -11,7 +11,7 @@
         Icon="IntervalTImer.ico"
         WindowStyle="None"
         ResizeMode="CanMinimize"
-        FontFamily="Arial">
+        FontFamily="Open Sans">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" 
@@ -70,10 +70,17 @@
                 <materialDesign:PopupBox Margin="3"
                                          PlacementMode="BottomAndAlignRightEdges"
                                          Foreground="LightGray">
-                    <StackPanel Width="300">
-                        <Button Content="Settings"/>
-                        <Button Content="Help"/>
+                    <StackPanel Width="150">
+                        <Button x:Name="Settings"
+                                Content="Settings"
+                                Click="Settings_Click"/>
+                        <Button x:Name="Help"
+                                Content="Help"
+                                Click="Help_Click"/>
                         <Separator/>
+                        <Button x:Name="Minimize"
+                                Content="Minimize"
+                                Click="Minimize_Click"/>
                         <Button x:Name="Shutdown"
                                 Content="Shutdown"
                                 Click="Shutdown_Click"/>
@@ -170,6 +177,22 @@
                                                          VerticalAlignment="Center"
                                                          Foreground="LightGray"/>
                                 <TextBlock Text="Stopwatch"
+                                           VerticalAlignment="Center"
+                                           Margin="15"
+                                           Foreground="LightGray"
+                                           FontWeight="Bold"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem  x:Name="TimerButton"
+                                       Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="TimerSand"
+                                                         Height="20"
+                                                         Width="20"
+                                                         Margin="3"
+                                                         VerticalAlignment="Center"
+                                                         Foreground="LightGray"/>
+                                <TextBlock Text="Timer"
                                            VerticalAlignment="Center"
                                            Margin="15"
                                            Foreground="LightGray"

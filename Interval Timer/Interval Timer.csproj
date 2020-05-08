@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1F2D096F-FFA1-4D4C-997E-CCA9AD6D3B66}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Interval_Timer</RootNamespace>
     <AssemblyName>Interval Timer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -83,6 +83,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -101,6 +102,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CountdownGrid.xaml.cs">
+      <DependentUpon>CountdownGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AddRoutineGrid.xaml.cs">
       <DependentUpon>AddRoutineGrid.xaml</DependentUpon>
     </Compile>
@@ -114,6 +118,11 @@
       <DependentUpon>StopwatchGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Routine.cs" />
+    <Compile Include="RoutineInformation.cs" />
+    <Page Include="CountdownGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -183,9 +192,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Routines\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="IntervalTImer.ico" />
   </ItemGroup>

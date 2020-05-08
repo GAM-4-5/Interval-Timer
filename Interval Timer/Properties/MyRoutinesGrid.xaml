@@ -6,13 +6,29 @@
              xmlns:local="clr-namespace:Interval_Timer.Properties"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
+             Height="auto" Width="auto"
+             Loaded="UserControl_Loaded"
+             FontFamily="Open Sans">
     <Grid Margin="40, 40, 0, 0">
         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.8}">
-            <Grid x:Name="MyRoutinesMenu">
-                <StackPanel>
-                    <TextBlock Text="My Routine"/>
+            <Grid x:Name="MainGrid">
+                <StackPanel Width="710"
+                        Height="960"
+                        Margin="20">
+                    <TextBlock Text="My Routines" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Margin="0, 0, 75, 0"/>
+                    <Separator Background="DarkRed"/>
+                    <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
+                        <TextBlock Text="Name" FontWeight="Bold" FontSize="20" Margin="8,0,0,0"/>
+                        <TextBlock Text="Overall time" Margin="191,0,0,0" FontWeight="Bold" FontSize="20"/>
+                    </StackPanel>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <ListView x:Name="MyRoutinesList" HorizontalContentAlignment="Left" Margin="10,0,0,0" FontSize="20" FontFamily="Tex Gyre Cursor" SelectionChanged="MyRoutinesList_SelectionChanged">
+                            </ListView>
+                        </Grid>
+                    </ScrollViewer>
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

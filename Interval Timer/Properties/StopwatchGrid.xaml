@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Interval_Timer.Properties"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
+             Height="auto" Width="auto"
+             FontFamily="Open Sans">
     <Grid Margin="40, 40, 0, 0">
         
         <Grid Margin="50,350,50,0"

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Interval_Timer.CountdownGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interval_Timer"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto"
+             Loaded="UserControl_Loaded"
+             FontFamily="Open Sans">
+    <Grid>
+        <StackPanel Margin="100">
+        </StackPanel>
+        <ComboBox x:Name="ListOfRoutines" Margin="0,200,0,0" Width="100" DropDownClosed="ListOfRoutines_DropDownClosed">
+        </ComboBox>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="375,0,0, 850">
+            <TextBlock Text="Remaining: " FontSize="30"/>
+            <TextBlock x:Name="Timer"
+                       FontSize="30"
+                       Text="00:00">
+            </TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,300">
+            <TextBlock x:Name="IT" Text="00:00" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            <TextBlock x:Name="State" Text="Warm Up" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        </StackPanel>
+        
+        <Button x:Name="StartStop"
+                    Height="100"
+                    Width="100" 
+                    Margin="0,200,0,200" 
+                    Content="Start" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    Background="DarkRed"
+                    Click="StartStop_Click">
+        </Button>
+        <!--<Button x:Name="Discard"
+                    Height="100"
+                    Width="100" 
+                    Margin="150, 0, 0, 200" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    Background="DarkRed"
+                    Click="Discard_Click">
+            <materialDesign:PackIcon Kind="Stop" Height="30" Width="30"/>
+        </Button>-->
+    </Grid>
+</UserControl>

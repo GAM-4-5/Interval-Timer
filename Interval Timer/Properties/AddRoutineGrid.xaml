@@ -6,31 +6,122 @@
              xmlns:local="clr-namespace:Interval_Timer.Properties"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
+             Height="auto" Width="auto"
+             FontSize="15"
+             FontFamily="Open Sans">
     <Grid Margin="40, 40, 0, 0">
         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.8}">
-            <Grid x:Name="FinishedRoutinesMenu">
-                <StackPanel>
-                    <Button x:Name="NewRoutineButton"
-                            Content="Add Routine"
-                            Click="NewRoutineButton_Click"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"/>
-                    <TextBox x:Name="NewRoutineName"
-                             Text="Name"
-                             GotFocus="NewRoutineName_GotFocus"
-                             MaxWidth="50"/>
+            <Grid x:Name="AddRoutineMenu">
+                <StackPanel x:Name="AddRoutineB" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <TextBlock Text="Enter name: " 
+                                   Margin="0, 3, 3, 3"
+                                   VerticalAlignment="Center"/>
+                        <TextBox x:Name="NewRoutineName"
+                                 TextAlignment="Center"
+                                 MaxWidth="200"
+                                 MinWidth="100"
+                                 Margin="3"
+                                 VerticalAlignment="Center"/>
+                    </StackPanel>
                     <TextBlock x:Name="NameError"
                                Text="Routine name is needed"
                                Foreground="Red"
                                Visibility="Hidden"/>
-                    <ComboBox MaxHeight="100"
-                              IsEditable="False"
-                              x:Name="Warmup">
-                    </ComboBox>
-                </StackPanel>
+                    <TextBlock Text="Warmup:"/>
+                    <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Top">
+                        <TextBox x:Name="WarmupHours" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="WarmupMinutes" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="WarmupSeconds" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 40" VerticalAlignment="Top">
+                        <TextBlock Text="Hours" TextAlignment="Center" Margin="5, 0, 7, 0"/>
+                        <TextBlock Text="Minutes" TextAlignment="Center" Margin="15, 0, 15, 0"/>
+                        <TextBlock Text="Seconds"  TextAlignment="Center" Margin="0, 0, 0, 0"/>
+                    </StackPanel>
 
+                    <TextBlock Text="Interval:"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top"> 
+                        <TextBlock Text="Repetitions:" Margin="0, 3, 3,3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="RepeatTimes" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3, 3, 3, 10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <TextBlock Text="Sets:" VerticalAlignment="Center"/>
+                        <TextBox x:Name="Sets" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3, 3, 3, 10"/>
+                    </StackPanel>
+                    
+                    <TextBlock Text="Low Interval:" Margin="0, 3, 3, 3" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Top">
+                        <TextBox x:Name="LowHours" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":" Margin="3"/>
+                        <TextBox x:Name="LowMinutes" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":" Margin="3"/>
+                        <TextBox x:Name="LowSeconds" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 40" VerticalAlignment="Top">
+                        <TextBlock Text="Hours" TextAlignment="Center" Margin="5, 0, 7, 0"/>
+                        <TextBlock Text="Minutes" TextAlignment="Center" Margin="15, 0, 15, 0"/>
+                        <TextBlock Text="Seconds"  TextAlignment="Center" Margin="0, 0, 0, 0"/>
+                    </StackPanel>
+                    <TextBlock Text="High Interval:" Margin="0, 3, 3, 3" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Top">
+                        <TextBox x:Name="HighHours" TextAlignment="Center" Width="50" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="HighMinutes" TextAlignment="Center" Width="50" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="HighSeconds" TextAlignment="Center" Width="50" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 40" VerticalAlignment="Top" >
+                        <TextBlock Text="Hours" TextAlignment="Center" Margin="5, 0, 7, 0"/>
+                        <TextBlock Text="Minutes" TextAlignment="Center" Margin="15, 0, 15, 0"/>
+                        <TextBlock Text="Seconds"  TextAlignment="Center" Margin="0, 0, 0, 0"/>
+                    </StackPanel>
+                    <TextBlock Text="Cooldown:" Margin="0, 3, 3, 3" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Top">
+                        <TextBox x:Name="CHours" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="CMinutes" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="CSeconds" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 40" VerticalAlignment="Top">
+                        <TextBlock Text="Hours" TextAlignment="Center" Margin="5, 0, 7, 0"/>
+                        <TextBlock Text="Minutes" TextAlignment="Center" Margin="15, 0, 15, 0"/>
+                        <TextBlock Text="Seconds"  TextAlignment="Center" Margin="0, 0, 0, 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="First interval is high:" Margin="0, 3, 3, 3" VerticalAlignment="Center"/>
+                        <ToggleButton x:Name="FirstHigh"  IsChecked="True" Margin="20,0,0,0" Background="DarkRed"></ToggleButton>
+                    </StackPanel>
+                    <TextBlock Text="Cooldown:" Margin="0, 40, 3, 3" VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 0" VerticalAlignment="Top">
+                        <TextBox x:Name="RHours" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="RMinutes" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                        <Label Content=":"/>
+                        <TextBox x:Name="RSeconds" Width="50" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" Margin="3"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 0" VerticalAlignment="Top">
+                        <TextBlock Text="Hours" TextAlignment="Center" Margin="5, 0, 7, 0"/>
+                        <TextBlock Text="Minutes" TextAlignment="Center" Margin="15, 0, 15, 0"/>
+                        <TextBlock Text="Seconds"  TextAlignment="Center" Margin="0, 0, 0, 0"/>
+                    </StackPanel>
+                    <Button x:Name="NewRoutineButton"
+                            Content="Add Routine"
+                            Click="NewRoutineButton_Click"
+                            Width="120"
+                            Height="30"
+                            Background="DarkRed"
+                            Foreground="LightGray"
+                            Margin="0, 20, 0, 0"/>
+                    <TextBlock x:Name="ErrorOrPass"
+                               Text=""
+                               Foreground="Red"
+                               Visibility="Hidden"/>
+                </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>
     </Grid>

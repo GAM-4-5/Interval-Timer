@@ -6,13 +6,14 @@
              xmlns:local="clr-namespace:Interval_Timer.Properties"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
+             Height="auto" Width="auto"
+             FontFamily="Open Sans">
     <Grid Margin="40, 40, 0, 0">
         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.8}">
             <Grid x:Name="FinishedRoutinesMenu">
                 <StackPanel>
-                    <TextBlock Text="Finished Routines"/>
+                    <TextBlock Text="We are still in beta development, this is currently unavailable"/>
                 </StackPanel>
             </Grid>
         </materialDesign:TransitioningContent>

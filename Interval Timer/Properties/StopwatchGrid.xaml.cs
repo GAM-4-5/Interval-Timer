@@ -123,8 +123,9 @@ namespace Interval_Timer.Properties
                 newSeparator.VerticalAlignment = VerticalAlignment.Center;
                 newSeparator.HorizontalAlignment = HorizontalAlignment.Center;
                 newSeparator.Width = 550;
-                LapListing.Children.Add(newTextBlock);
-                LapListing.Children.Add(newSeparator);
+                LapListing.Children.Insert(0, newSeparator);
+                LapListing.Children.Insert(0, newTextBlock);
+                
                 RecordedTimes.Add(new List<int> { ts.Minutes, ts.Seconds, ts.Milliseconds / 10 });
             }
         }

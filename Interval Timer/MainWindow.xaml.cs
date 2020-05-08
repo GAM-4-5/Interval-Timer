@@ -33,10 +33,6 @@ namespace Interval_Timer
 
         }
 
-        private void ButtonCallendar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
 
         private void Shutdown_Click(object sender, RoutedEventArgs e)
@@ -44,17 +40,6 @@ namespace Interval_Timer
             Application.Current.Shutdown();
         }
 
-        private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
-        {
-            //ButtonOpenMenu.Visibility = Visibility.Visible;
-            //ButtonCloseMenu.Visibility = Visibility.Collapsed;
-        }
-
-        private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
-        {
-            //ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            //ButtonCloseMenu.Visibility = Visibility.Visible;
-        }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -83,6 +68,11 @@ namespace Interval_Timer
                     MainGrid.Children.Clear();
                     MainGrid.Children.Add(new StopwatchGrid());
                     break;
+                case 4:
+                    MainGrid.Children.Clear();
+                    MainGrid.Children.Add(new CountdownGrid("BstsASmtsIFxfKHHvibF"));
+                    break;
+
             }
         }
             private void MoveCursorMenu(int index)
@@ -92,5 +82,19 @@ namespace Interval_Timer
             GridCursor.Width = 5;
         }
 
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("We are still in beta development, this is currently unavailable");
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("We are still in beta development, this is currently unavailable");
+        }
     }
 }
